@@ -53,7 +53,16 @@
 		 function clearCart(){
 		 	cart = [];
 		 }
-		 clearCart();
+
+		 function countCart(){
+		 	var totalItems = 0;
+		 	for(var i in cart){
+		 		totalItems +=cart[i].count;
+		 	}
+		 	return totalItems;
+		 }
+		 console.log(cart)
+		 console.log(countCart())
 	</script>
 </body>
 </html>
