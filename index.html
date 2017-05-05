@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript</title>
+</head>
+<body>
+	
+
+	<script>
+		var cart = [];
+		var Item = function(name, cost, count){
+			this.name = name;
+			this.cost = cost;
+			this.count = count;
+		}
+		 function addItemToCart(name, cost, count){
+
+		 	for(var i in cart){
+		 		if(cart[i].name == name){
+		 			cart[i].count++;return;
+		 		}
+		 	}
+		 	var item = new Item(name, cost, count);
+		 	cart.push(item);
+		 } 
+		 addItemToCart("apple", 999, 1)
+		 addItemToCart("acer", 213, 1)
+		 addItemToCart("apple", 444, 1)
+		 addItemToCart("apple", 444, 1)
+		 addItemToCart("car", 444, 1)
+		 addItemToCart("car", 444, 1)
+		 addItemToCart("car", 444, 1)
+
+		 function removeItemFromCart(name){
+		 	for (var i in cart){
+		 		if(cart[i].name == name){
+		 			cart[i].count--;
+		 			if(cart[i].count == 0){
+		 				cart.splice(i, 1);
+		 			}
+		 		}
+		 	}
+		 }
+		 function removeItemFromCartAll(name){
+		 	for(var i in cart){
+		 		if(cart[i].name == name){
+		 			cart.splice(i, 1);break;
+		 		}
+		 	}
+		 }
+		 removeItemFromCartAll("apple");
+		 console.log(cart)
+
+	</script>
+</body>
+</html>
