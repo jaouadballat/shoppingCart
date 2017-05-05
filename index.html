@@ -61,8 +61,15 @@
 		 	}
 		 	return totalItems;
 		 }
+		 function totalCart(){
+		 	var totalCost = 0;
+		 	for(var i in cart){
+		 		totalCost+=cart[i].cost;
+		 	}
+		 	return totalCost;
+		 }
+
 		 console.log(cart)
-		 console.log(countCart())
 	</script>
 </body>
 </html>
