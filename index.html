@@ -69,7 +69,18 @@
 		 	return totalCost;
 		 }
 
-		 console.log(cart)
+		 function listCart(){
+		 var cartCopy = [];
+		 for(var i in cart){
+		 	var item = cart[i];
+		 	var itemCopy = {};
+		 	for(var j in item){
+		 		itemCopy[j] = item[j];
+		 	}
+		 	cartCopy.push(itemCopy);
+		 }
+		 return cartCopy;
+		}
 	</script>
 </body>
 </html>
