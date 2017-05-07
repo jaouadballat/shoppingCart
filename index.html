@@ -2,10 +2,43 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>javascript</title>
+	<title>Shopping Cart</title>
 </head>
 <body>
+		<h1>Shopping Cart</h1>
+		
+	<div>
+		<ul>
+			<li><a href="#" class="add-to-cart" data-name="appel" data-price="9">Appel</a></li>
+			<li><a href="#" class="add-to-cart" data-name="acer" data-price="99">Acer</a></li>
+			<li><a href="#" class="add-to-cart" data-name="car" data-price="100">Car</a></li>
+		</ul>
+		<button id="clear-cart">Clear Cart</button>
+	</div>
+	<div>
+		<ul id="show-cart">
+			
+		</ul>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
+	$('.add-to-cart').click(function(event){
+		event.preventDefault();
+		var name = $(this).attr("data-name");
+		var price = $(this).attr("data-price");
+		addItemToCart(name, price, 1);
+		displayCart();
+	});
+
+	function displayCart(){
+		var array = listCart();
+		var output = "";
+		for(var i in array){
+			output += '<li>'+array[i].name+' '+array[i].count+'</li>'
+		}
+		$("#show-cart").html(output);
+	}
 		var cart = [];
 		var Item = function(name, cost, count){
 			this.name = name;
@@ -83,10 +116,7 @@
 		function loadCart(){
 		 cart = JSON.parse(localStorage.getItem("shoppingCart"));
 		}
-		loadCart();
-		console.log(cart)
 
-		console.log(listCart())
 	</script>
 </body>
 </html>
