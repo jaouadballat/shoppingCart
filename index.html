@@ -5,8 +5,6 @@
 	<title>javascript</title>
 </head>
 <body>
-	
-
 	<script>
 		var cart = [];
 		var Item = function(name, cost, count){
@@ -25,13 +23,6 @@
 		 	cart.push(item);
 		 	saveCart();
 		 } 
-		 addItemToCart("apple", 999, 1)
-		 addItemToCart("acer", 213, 1)
-		 addItemToCart("apple", 444, 1)
-		 addItemToCart("apple", 444, 1)
-		 addItemToCart("car", 444, 1)
-		 addItemToCart("car", 444, 1)
-		 addItemToCart("car", 444, 1)
 
 		 function removeItemFromCart(name){
 		 	for (var i in cart){
@@ -89,7 +80,13 @@
 		function saveCart(){
 			localStorage.setItem('shoppingCart', JSON.stringify(cart));
 		}
-		removeItemFromCartAll('car');
+		function loadCart(){
+		 cart = JSON.parse(localStorage.getItem("shoppingCart"));
+		}
+		loadCart();
+		console.log(cart)
+
+		console.log(listCart())
 	</script>
 </body>
 </html>
